@@ -1,0 +1,57 @@
+<ion-app>
+  <ion-menu contentId="main-content">
+    <ion-header>
+      <ion-toolbar color="success">
+        <ion-title>Opciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-content class="ion-padding">
+     
+      <ion-item button (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button> 
+        </ion-buttons>
+        <ion-title>Perfil</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+
+    <ion-content class="ion-padding">
+      <form (ngSubmit)="actualizarPerfil()">
+        <ion-item>
+          <ion-label position="stacked">Cédula</ion-label>
+          <ion-input [(ngModel)]="perfil.ci" name="ci" type="text" readonly></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input [(ngModel)]="perfil.nombre" name="nombre" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input [(ngModel)]="perfil.apellido" name="apellido" type="text"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Correo</ion-label>
+          <ion-input [(ngModel)]="perfil.correo" name="correo" type="text"></ion-input>
+        </ion-item>
+
+        <!-- Botones de acción -->
+        <div class="ion-padding">
+          <ion-button type="submit" expand="full" color="primary">Actualizar perfil</ion-button>
+        </div>
+      </form>
+    </ion-content>
+  </div>
+</ion-app>

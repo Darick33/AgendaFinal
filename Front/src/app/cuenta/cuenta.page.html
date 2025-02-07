@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button (click)="cerrarModal()">
+        <ion-icon 
+          name="close"
+          class="motion-safe:animate-spin hover:scale-110 transition-transform duration-200"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="p-4">
+  <ion-list class="space-y-4">
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Cédula</ion-label>
+      <ion-input type="text" [(ngModel)]="txt_cedula" (focusout)="vcedula()"></ion-input>
+    </ion-item>
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input type="text" [(ngModel)]="txt_nombre"></ion-input>
+    </ion-item>
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input type="text" [(ngModel)]="txt_apellido"></ion-input>
+    </ion-item>
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input type="email" [(ngModel)]="txt_correo"></ion-input>
+    </ion-item>
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Clave</ion-label>
+      <ion-input type="password" [(ngModel)]="txt_clave" (focusout)="vclave()"></ion-input>
+    </ion-item>
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Confirmar clave</ion-label>
+      <ion-input type="password" [(ngModel)]="txt_confirmarClave" (input)="vclave()"></ion-input>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-text color="danger">{{ mensaje }}</ion-text>
+    </ion-item>
+  </ion-list>
+
+  <div class="flex flex-col gap-4 mt-6">
+    <ion-button 
+      color="primary" 
+      expand="block" 
+      class="transition-transform transform motion-safe:hover:scale-105 duration-200"
+      (click)="registrar()"
+    >
+      Registrar
+    </ion-button>
+    
+    <ion-button 
+      color="medium" 
+      expand="block"
+      class="transition-transform transform motion-safe:hover:scale-105 duration-200"
+      (click)="cancelar()"
+    >
+      Cancelar
+    </ion-button>
+  </div>
+</ion-content>

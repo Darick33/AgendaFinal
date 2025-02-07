@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button 
+        defaultHref="/menu" 
+        class="motion-safe:hover:scale-110 transition-transform duration-200"
+      ></ion-back-button> 
+    </ion-buttons>
+    <ion-title>Actualizar contacto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="p-4">
+  <ion-list class="space-y-4">
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input [(ngModel)]="text_nombre" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input [(ngModel)]="text_apellido" type="text"></ion-input>
+    </ion-item>
+
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Teléfono</ion-label>
+      <ion-input [(ngModel)]="text_telefono" type="tel"></ion-input>
+    </ion-item>
+
+    <ion-item class="transform motion-safe:hover:scale-105 transition duration-300">
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input [(ngModel)]="text_correo" type="email"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-padding mt-6">
+    <ion-button 
+      color="primary" 
+      expand="block" 
+      class="transition-transform transform motion-safe:hover:scale-105 duration-200"
+      (click)="guardar()"
+    >
+      Actualizar
+    </ion-button>
+  </div>
+</ion-content>

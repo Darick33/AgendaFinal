@@ -1,0 +1,60 @@
+<ion-content class="ion-padding">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Recuperar Contraseña</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <!-- Input del usuario (CI) -->
+       @if (usuariov) {
+
+         <ion-item lines="none">
+           <ion-label position="floating">Usuario (CI)</ion-label>
+           <ion-input [(ngModel)]="usuario" clearInput></ion-input>
+          </ion-item>
+          
+          <!-- Botón para verificar el usuario -->
+          <ion-button expand="full" color="primary" (click)="verificarUsuario()" *ngIf="!preguntasRespuestas.length" class="ion-margin-top">
+            Verificar Usuario
+          </ion-button>
+       }
+
+
+      <!-- Mostrar todas las preguntas de seguridad -->
+       @if (
+        verClave
+       ) {
+
+         <div *ngIf="preguntasRespuestas.length" class="ion-margin-top">
+           <ion-list>
+             <ion-item *ngFor="let preguntaRes of preguntasRespuestas; let i = index" lines="inset">
+               <ion-label position="floating">{{ preguntaRes.pregunta }}</ion-label>
+               <ion-input [(ngModel)]="respuestas[i]" type="text" clearInput></ion-input>
+             </ion-item>
+           </ion-list>
+   
+           <!-- Botón para verificar las respuestas de seguridad -->
+           <ion-button expand="full" color="secondary" (click)="verificarRespuestas()" class="ion-margin-top">
+             Verificar Respuestas
+           </ion-button>
+         </div>
+       }
+
+      <!-- Input para la nueva clave, visible solo si todas las respuestas son correctas -->
+      <ion-item *ngIf="mostrarCambioClave" lines="none" class="ion-margin-top">
+        <ion-label position="floating">Nueva Clave</ion-label>
+        <ion-input type="password" [(ngModel)]="nuevaClave" clearInput></ion-input>
+      </ion-item>
+
+      <!-- Botón para cambiar la contraseña -->
+      <ion-button expand="full" color="success" (click)="cambiarClave()" *ngIf="mostrarCambioClave" class="ion-margin-top">
+        Cambiar Clave
+      </ion-button>
+
+      <!-- Botón de cancelar -->
+      <ion-button expand="full" color="light" (click)="regresar()" class="ion-margin-top">
+        Cancelar
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
